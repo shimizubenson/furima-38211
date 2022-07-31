@@ -33,7 +33,7 @@ Things you may want to cover:
 | first_name         | string | null: false             |
 | last_name_kana     | string | null: false             |
 | first_name_kana    | string | null: false             |
-| birthday           | string | null: false             |
+| birthday           | data   | null: false             |
 
 
 ### Association
@@ -43,17 +43,17 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-| Column     | Type      | Options                      |
-| ---------- | --------- | ---------------------------- |
-| seller_name| string    | null: false                  |
-| item_name  | string    | null: false                  |
-| status     | string    | null: false                  |
-| category   | string    | null: false                  |
-| postage    | string    | null: false                  |
-| region     | string    | null: false                  |
-| day_to_ship| string    | null: false                  |
-| price      | integer   | null: false                  |
-| user       | references|null:false , foreign_key: true|
+| Column        | Type      | Options                      |
+| ----------    | --------- | ---------------------------- |
+| seller_name   | string    | null: false                  |
+| item_name     | string    | null: false                  |
+| status_id     | integer   | null: false                  |
+| category_id   | integer   | null: false                  |
+| postage_id    | integer   | null: false                  |
+| region_id     | integer   | null: false                  |
+| day_to_ship_id| integer   | null: false                  |
+| price         | integer   | null: false                  |
+| user          | references|null:false , foreign_key: true|
 
 ### Association
 
@@ -64,7 +64,6 @@ Things you may want to cover:
 
 | Column     | Type      | Options                      |
 | ---------- | --------- | ---------------------------- |
-| buyer_name | string    | null: false                  |
 | item       | references|null: false, foreign_key: true|
 | user       | references|null: false, foreign_key: true|
 
@@ -72,19 +71,21 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
+- has_one : order-information
+
 
 ## order-informationテーブル
 
-| Column       | Type      | Options                      |
-| ----------   | --------- | ---------------------------- |
-| post_code    | integer   | null: false                  |
-| prefectures  | string    | null: false                  |
-| city         | string    | null: false                  |
-| address      | string    | null: false                  |
-| house_number | integer   | null: false                  |
-| building_name| string    |                              |
-| order        | references|null:false , foreign_key: true|
+| Column        | Type      | Options                      |
+| ----------    | --------- | ---------------------------- |
+| post_code     | string    | null: false                  |
+| prefecture_id | integer   | null: false                  |
+| city          | string    | null: false                  |
+| address       | string    | null: false                  |
+| building_name | string    |                              |
+| phone_number  | string    | null: false                  |
+| order         | references|null:false , foreign_key: true|
 
 ### Association
 
-- belongs_to :order
+- belongs_to :order 
