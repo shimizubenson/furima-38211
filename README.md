@@ -45,8 +45,9 @@ Things you may want to cover:
 
 | Column        | Type      | Options                      |
 | ----------    | --------- | ---------------------------- |
-| seller_name   | string    | null: false                  |
-| item_name     | string    | null: false                  |
+| seller        | string    | null: false                  |
+| name          | string    | null: false                  |
+| description   | string    | null: false                  |
 | status_id     | integer   | null: false                  |
 | category_id   | integer   | null: false                  |
 | postage_id    | integer   | null: false                  |
@@ -71,10 +72,10 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
-- has_one : order-information
+- has_one : order_information
 
 
-## order-informationテーブル
+## order_informationテーブル
 
 | Column        | Type      | Options                      |
 | ----------    | --------- | ---------------------------- |
