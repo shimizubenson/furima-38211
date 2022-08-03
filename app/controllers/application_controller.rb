@@ -17,5 +17,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name_kana])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name_kana])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name_kana])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:birthday])
   end
 end
