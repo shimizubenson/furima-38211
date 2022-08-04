@@ -1,14 +1,17 @@
 class Item < ApplicationRecord
 
-         validates :name,              presence: true
-         validates :description,       presence: true
-         validates :status_id,         presence: true
-         validates :category_id,       presence: true 
-         validates :postage_id,        presence: true 
-         validates :region_id,         presence: true
-         validates :day_to_ship_id,    presence: true
-         validates :price,             presence: true
+         validates :name, :description, :price,            presence: true
+         validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
+         validates :category_id, numericality: { other_than: 1,message: "can't be blank" }
+         validates :postage_id, numericality: { other_than: 1,message: "can't be blank" }
+         validates :region_id, numericality: { other_than: 1,message: "can't be blank" }
+         validates :day_to_ship_id, numericality: { other_than: 1,message: "can't be blank" } 
          
          belongs_to :user
+         belongs_to :status
+         belongs_to :category
+         belongs_to :postage
+         belongs_to :region
+         belongs_to :day_to_ship
          has_one_attached :image
 end
