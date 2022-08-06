@@ -31,32 +31,32 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
 
-      it "status_idが空だと登録できない" do
-        @item.status_id = ''
+      it "status_idが未選択項目だと登録できない" do
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
       end
 
-      it "category_idが空だと登録できない" do
-        @item.category_id = ''
+      it "category_idが未選択項目だと登録できない" do
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
-      it "postage_idが空だと登録できない" do
-        @item.postage_id = ''
+      it "postage_idが未選択項目だと登録できない" do
+        @item.postage_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
 
-      it "region_idが空だと登録できない" do
-        @item.region_id = ''
+      it "region_idが未選択項目だと登録できない" do
+        @item.region_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Region can't be blank")
       end
 
-      it "day_to_ship_idが空だと登録できない" do
-        @item.day_to_ship_id = ''
+      it "day_to_ship_idが未選択項目だと登録できない" do
+        @item.day_to_ship_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Day to ship can't be blank")
       end
@@ -82,7 +82,13 @@ RSpec.describe Item, type: :model do
       it "priceが全角数字では登録できない" do
         @item.price = '２０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include("Price is not a number")  
+      end
+
+      it 'userが紐付いていないと保存できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
