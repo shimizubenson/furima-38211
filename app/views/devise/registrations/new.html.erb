@@ -8,9 +8,7 @@
     </h1>
   </div>
 
-  <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
   <%= render 'shared/error_messages', model: f.object %>
-  <% end %>
   
 
   <div class="form-group">
