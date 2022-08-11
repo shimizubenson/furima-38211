@@ -6,9 +6,8 @@ class OrderOrderInformation
     validates :city,:address,:user_id,:item_id,:token      
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :region_id, numericality: { other_than: 1, message: "can't be blank" } 
-    validates :phone_number, numericality: { only_integer: true }, format: {with: /\A\d{10,11}\z/}
+    validates :phone_number, format: {with: /\A\d{10,11}\z/}
   end
-    validate :building_name
 
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
