@@ -16,4 +16,5 @@ class Item < ApplicationRecord
          belongs_to :region
          belongs_to :day_to_ship
          has_one_attached :image
+         has_one    :order
 end
