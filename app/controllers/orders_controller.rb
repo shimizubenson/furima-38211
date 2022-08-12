@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
   end
-  
 
   def create
     @order_order_information = OrderOrderInformation.new(order_params)
@@ -37,6 +36,6 @@ class OrdersController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:item_id]
+    @item = Item.find(params[:item_id])
   end
 end
