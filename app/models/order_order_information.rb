@@ -4,8 +4,8 @@ class OrderOrderInformation
 
   with_options presence: true do
     validates :city,:address,:user_id,:item_id,:token      
-    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :region_id, numericality: { other_than: 1, message: "can't be blank" } 
+    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフォン（-）を入力してください"}
+    validates :region_id, numericality: { other_than: 1, message: "を入力してください" } 
     validates :phone_number, format: {with: /\A\d{10,11}\z/}
   end
 
